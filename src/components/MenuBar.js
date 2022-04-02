@@ -12,6 +12,7 @@ import HealingIcon from '@mui/icons-material/Healing';
 import WorkIcon from '@mui/icons-material/Work';
 import {useContext, useState} from "react";
 import {IsAuthenticatingContext} from "../providers/isAuthenticatingProvider";
+import {useCycle} from "framer-motion";
 
 const Search = styled('div')(({theme}) => ({
   position: 'relative',
@@ -55,10 +56,20 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
   },
 }));
 
-const SearchBar = ({setSearchBarContent}) => {
+const SearchBar = ({setFilterType}) => {
   const { isAuthenticating } = useContext(IsAuthenticatingContext)
 
-  const [filter, setFilter] = useState()
+  const [isFiltered, resetFilter] = useState(false)
+
+  const setFilter = (filterName) => {
+    if(isFiltered) {
+      setFilterType("")
+      resetFilter(false)
+      return
+    }
+    setFilterType(filterName)
+    resetFilter(true)
+  }
 
   return (
     <>
@@ -72,7 +83,7 @@ const SearchBar = ({setSearchBarContent}) => {
               sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
 
             >
-              <div>
+              <div onClick={() => setFilter("food")}>
                 <RestaurantIcon style={{marginTop: 10}}/>
                 <div> Food </div>
               </div>
@@ -85,7 +96,7 @@ const SearchBar = ({setSearchBarContent}) => {
               sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
 
             >
-              <div>
+              <div onClick={() => setFilter("hotels")}>
                 <HotelIcon style={{marginTop: 10}}/>
                 <div> Hotels </div>
               </div>
@@ -98,7 +109,7 @@ const SearchBar = ({setSearchBarContent}) => {
               sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
 
             >
-              <div>
+              <div onClick={() => setFilter("health")}>
                 <HealingIcon style={{marginTop: 10}}/>
                 <div> Health care </div>
               </div>
@@ -111,7 +122,7 @@ const SearchBar = ({setSearchBarContent}) => {
               sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
 
             >
-              <div>
+              <div onClick={() => setFilter("work")}>
                 <WorkIcon style={{marginTop: 10}}/>
                 <div> Workplaces </div>
               </div>

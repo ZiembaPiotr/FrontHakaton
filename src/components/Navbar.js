@@ -13,27 +13,29 @@ import {IsAuthenticatingContext} from "../providers/isAuthenticatingProvider";
 const Navbar = () => {
   let history = useHistory();
 
-  const {isAuthenticating, setIsAuthenticating} = useContext(IsAuthenticatingContext)
+  const { isAuthenticating, setIsAuthenticating } = useContext(IsAuthenticatingContext)
+
+  const handleLoginAttempt = () => {
+    if (isAuthenticating) {
+      history.push("/")
+      setIsAuthenticating()
+      return
+    }
+    history.push("/authentication")
+    setIsAuthenticating()
+  }
 
   return (<>
     <Box sx={{flexGrow: 1}}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{mr: 2}}
-          >
-            <MenuIcon/>
-          </IconButton>
+
           <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-            News
+            Nazwa strony
           </Typography>
           <Button color="inherit" onClick={() => {
-            history.push("/authentication")
-          }}>Login</Button>
+           handleLoginAttempt()
+          }}>{!isAuthenticating ? "Login" : "Back" }</Button>
         </Toolbar>
       </AppBar>
     </Box>

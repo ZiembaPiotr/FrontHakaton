@@ -6,7 +6,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import {useContext} from "react";
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import HotelIcon from '@mui/icons-material/Hotel';
+import HealingIcon from '@mui/icons-material/Healing';
+import WorkIcon from '@mui/icons-material/Work';
+import {useContext, useState} from "react";
 import {IsAuthenticatingContext} from "../providers/isAuthenticatingProvider";
 
 const Search = styled('div')(({theme}) => ({
@@ -52,7 +56,9 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 }));
 
 const SearchBar = ({setSearchBarContent}) => {
-  const {isAuthenticating, setIsAuthenticating} = useContext(IsAuthenticatingContext)
+  const { isAuthenticating } = useContext(IsAuthenticatingContext)
+
+  const [filter, setFilter] = useState()
 
   return (
     <>
@@ -64,9 +70,53 @@ const SearchBar = ({setSearchBarContent}) => {
               noWrap
               component="div"
               sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+
             >
-              MUI
+              <div>
+                <RestaurantIcon style={{marginTop: 10}}/>
+                <div> Food </div>
+              </div>
             </Typography>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+
+            >
+              <div>
+                <HotelIcon style={{marginTop: 10}}/>
+                <div> Hotels </div>
+              </div>
+            </Typography>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+
+            >
+              <div>
+                <HealingIcon style={{marginTop: 10}}/>
+                <div> Health care </div>
+              </div>
+            </Typography>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+
+            >
+              <div>
+                <WorkIcon style={{marginTop: 10}}/>
+                <div> Workplaces </div>
+              </div>
+            </Typography>
+
             <Search>
               <SearchIconWrapper>
                 <SearchIcon/>

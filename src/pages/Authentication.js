@@ -29,7 +29,7 @@ const Authentication = () => {
 
   return (
     <div>
-      <div className="wrapper fadeInDown" id="wrapper">
+      <div className="wrapper fadeInDown" id="wrapper" style={{background: "white"}}>
         <div id="formContent">
           <button id="btns" onClick={showLoginBox} disabled={false}>
             <h2 className={isLoginOpen ? "active" : "inactive underlineHover"}>

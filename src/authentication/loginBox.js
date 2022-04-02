@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import {logIn} from "../services/logIn";
 import {getToken} from "../services/getToken";
+import {useHistory} from "react-router-dom";
 
 const LoginBox = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  let history = useHistory();
 
   function onEmailChange(e) {
     setEmail(e.target.value);
@@ -29,6 +32,7 @@ const LoginBox = () => {
       alert("Failed to authenticate user!");
       return;
     }
+    history.push("/add_announcement");
     //sessionStorage.setItem(email, token.jwtToken);
   }
 
@@ -42,7 +46,6 @@ const LoginBox = () => {
 
   return (
     <form id="loginForm">
-      {true ? (
         <>
           <input
             type="text"
@@ -69,33 +72,6 @@ const LoginBox = () => {
             onClick={handleLogin}
           />
         </>
-      ) : (
-        <>
-          {" "}
-          <input
-            disabled={true}
-            type="text"
-            id="email"
-            className="fadeIn second"
-            name="email"
-          />{" "}
-          <input
-            disabled={true}
-            type="password"
-            id="password"
-            className="fadeIn third"
-            name="password"
-            placeholder="*********"
-            value={password}
-          />
-          <input
-            type="button"
-            className="fadeIn fourth"
-            value="Log out"
-            onClick={handleLogOut}
-          />
-        </>
-      )}
     </form>
   );
 };

@@ -1,20 +1,21 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import "../styles/list.css"
 import ListItem from "./ListItem";
+import {FilterTypeContext} from "../providers/filterTypeProvider";
 
 const List = () => {
-  const test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  let test = ["work", "health", "food", "work", "health", "food", "work", "hotels", "hotels", "hotels", "hotels", "hotels", "health", "food", "work", "hotels", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food"]
+  const { filterType } = useContext(FilterTypeContext);
 
   return (
     <div className="list" style={{maxHeight: window.innerHeight, overflow: "auto"}}>
-      {test.map((item) => (
-        <ListItem key={item} />
-      ))
+      {!filterType ? test.map((item, index) => (
+        <ListItem key={index} iconType={item}/>
+      )) : test.filter((item) => item === filterType).map((item, index) => (
+        <ListItem key={index} iconType={item}/>
+        ))
       }
-
     </div>
-
-
   );
 };
 

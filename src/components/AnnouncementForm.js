@@ -1,5 +1,5 @@
 
-import { TextareaAutosize, TextField } from '@mui/material'
+import { TextareaAutosize, TextField, Grid, Typog} from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
 function AnnouncementForm() {
@@ -20,32 +20,45 @@ function AnnouncementForm() {
         <div>
             <h1>DODAJ OGŁOSZENIE</h1>
             <form id="loginForm">
-                <div>
-                <div>
-                    <label htmlFor='title' className='form-label'>Title</label>
-                    <input type="text" className='form-control' id="name" placeholder = "" value = {topic}  onChange = {e => setTopic(e.target.value)}/>
-                </div>
-               
-                <div>
-                    <label htmlFor='title' className='form-label'>City</label>
-                    <input type="text" className='form-control' id="name" value = {location}  onChange = {e => setLocation(e.target.value)}/>
-                </div>
+                <Grid container columnSpacing={5}>
+                    <Grid item xs={4}>
+                        <label htmlFor='title' className='form-label'>Title</label>
+                    </Grid>
+                    
+                    <Grid item xs={4}>
+                        <label htmlFor='title' className='form-label'>City</label>
+                    </Grid>
 
-                <div>
-                    <label htmlFor='title' className='form-label'>Category</label>
-                    <input type="text" className='form-control' id="name" value = {category}  onChange = {e => setCategory(e.target.value)}/>
-                </div>
-                
-                <div>
-                    <label htmlFor='title' className='form-label'>Description</label>
-                    <input type="text" className='form-control' id="description" rows="5" placeholder = "" value = {content} onChange = {e => setContent(e.target.value)}/>
-                </div>
+                    <Grid item xs={4}>
+                        <label htmlFor='title' className='form-label'>Category</label>
+                    </Grid>
 
+                    <Grid item xs={4}>
+                        <input type="text" className='form-control' id="title" placeholder = "" value = {topic}  onChange = {e => setTopic(e.target.value)}/>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <input type="text" className='form-control' id="city" value = {location}  onChange = {e => setLocation(e.target.value)}/>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <input type="text" className='form-control' id="category" value = {category}  onChange = {e => setCategory(e.target.value)}/>
+                    </Grid>
+                    
+                    <Grid item xs={12}>
+                        <label htmlFor='title' className='form-label'>Description</label>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <TextField type="text" className='form-control' id="description" multiline style = {{width: 1300}} rows={5} placeholder = "" value = {content} onChange = {e => setContent(e.target.value)}/>
+                    </Grid>
+
+                </Grid>
                 <div>
                     <input type="button" className="fadeIn fourth" value="Submit"/>
                 </div>
 
-                </div>
+                
 
                 
             </form>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {GoogleMap, LoadScript, useJsApiLoader} from '@react-google-maps/api';
+import {GoogleMap, LoadScript} from '@react-google-maps/api';
 import {getResolution} from "../functions/getResolution";
 
 const containerStyle = getResolution()

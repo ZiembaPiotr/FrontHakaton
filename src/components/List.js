@@ -8,7 +8,7 @@ const List = () => {
   return (
     <div className="list" style={{maxHeight: window.innerHeight, overflow: "auto"}}>
       {test.map((item) => (
-        <ListItem key={item}/>
+        <ListItem key={item} />
       ))
       }
 

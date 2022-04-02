@@ -12,7 +12,9 @@ const center = {
 const Map = () => {
   return (
     <LoadScript
-      googleMapsApiKey=process.env.API_KEY
+      // googleMapsApiKey=process.env.API_KEY
+      googleMapsApiKey="AIzaSyCC7l2an9afwuF1LcCCmhGS0g72zLX0vJ4"
+
     >
       <GoogleMap
         mapContainerStyle={containerStyle}

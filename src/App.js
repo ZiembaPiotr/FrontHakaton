@@ -4,6 +4,7 @@ import MainPage from "./pages/MainPage";
 import Navbar from "./components/Navbar";
 import Authentication from "./pages/Authentication";
 import SearchBar from "./components/MenuBar";
+import AnnouncementForm from './components/AnnouncementForm';
 import {useState} from "react";
 import {useCycle} from "framer-motion";
 import {IsAuthenticatingContext} from "./providers/isAuthenticatingProvider";
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={MainPage}/>
             <Route path="/authentication" component={Authentication}/>
+            <Route path="/add_announcement" component={AnnouncementForm}/>
           </Switch>
         </Router>
       </IsAuthenticatingContext.Provider>

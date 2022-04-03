@@ -1,24 +1,32 @@
-import React from 'react'
+
+import React, {useState} from 'react'
 import {GoogleMap, LoadScript, Marker, useJsApiLoader} from '@react-google-maps/api';
 import {getResolution} from "../functions/getResolution";
 
 const containerStyle = getResolution()
+
+
 
 const center = {
   lat: 50.05,
   lng: 19.93,
 };
 
-const position = {
-  lat: 50.07,
-  lng: 19.94
-}
+
+// const positions = [
+//   {lat: 50.07, lng: 19.94},
+//   {lat: 50.05, lng: 19.93},
+// ];
 
 const onLoad = marker => {
   console.log('marker: ', marker)
 }
 
 const Map = () => {
+  const [positions, setPositions] = useState([
+    {lat: 50.07, lng: 19.94},
+    {lat: 50.05, lng: 19.93},
+  ]);
   return (
     <LoadScript
       // googleMapsApiKey=process.env.API_KEY
@@ -46,12 +54,17 @@ const Map = () => {
       }}
       position={position}
     /> */}
-    <Marker
+    {positions.map(position => (
+      <Marker
       icon={{
         url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
       }}
       position={position}
+      
+      
     />
+    ))}
+    
       </GoogleMap>
     </LoadScript>
   )

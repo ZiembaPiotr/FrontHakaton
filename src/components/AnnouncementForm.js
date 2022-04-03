@@ -1,4 +1,4 @@
-import { TextareaAutosize, TextField, Grid, Typog} from '@mui/material'
+import { TextareaAutosize, TextField, Grid} from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
 function AnnouncementForm() {
@@ -49,7 +49,7 @@ function AnnouncementForm() {
                   </Grid>
 
                   <Grid item xs={12}>
-                      <TextField type="text" className='form-control' id="description" multiline style = {{width: 1300}} rows={5} placeholder = "" value = {content} onChange = {e => setContent(e.target.value)}/>
+                      <TextField type="text" className='form-control' id="description" multiline style = {{width: 1000}} rows={5} placeholder = "" value = {content} onChange = {e => setContent(e.target.value)}/>
                   </Grid>
 
               </Grid>

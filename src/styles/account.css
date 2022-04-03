@@ -5,7 +5,8 @@
 
 .profile {
     min-width: 350px;
-    flex: 1
+    flex: 1;
+    height: 100vh;
 }
 
 .form {

@@ -17,7 +17,7 @@ function AnnouncementForm() {
 
     return (
       <>
-          <h1>DODAJ OGŁOSZENIE</h1>
+          <h1>ADD ANNOUNCEMENT</h1>
           <form id="loginForm">
               <Grid container columnSpacing={5}>
                   <Grid item xs={4}>

@@ -9,6 +9,7 @@ import {useState} from "react";
 import {useCycle} from "framer-motion";
 import {IsAuthenticatingContext} from "./providers/isAuthenticatingProvider";
 import {FilterTypeContext} from "./providers/filterTypeProvider";
+import Account from "./pages/Account";
 
 function App() {
   const [searchBarContent, setSearchBarContent] = useState("")
@@ -21,11 +22,11 @@ function App() {
         <FilterTypeContext.Provider value={{filterType}}>
           <Router>
             <Navbar/>
-            {!isAuthenticating && (<SearchBar {...{setFilterType}}/>)}
+            {!isAuthenticating && (<SearchBar {...{filterType, setFilterType}}/>)}
             <Switch>
               <Route exact path="/" component={MainPage}/>
               <Route path="/authentication" component={Authentication}/>
-              <Route path="/add_announcement" component={AnnouncementForm}/>
+              <Route path="/account" component={Account}/>
             </Switch>
           </Router>
         </FilterTypeContext.Provider>

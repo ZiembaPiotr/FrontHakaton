@@ -4,7 +4,7 @@ import ListItem from "./ListItem";
 import {FilterTypeContext} from "../providers/filterTypeProvider";
 
 const List = () => {
-  let test = ["work", "health", "food", "work", "health", "food", "work", "hotels", "hotels", "hotels", "hotels", "hotels", "health", "food", "work", "hotels", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food"]
+  let test = ["work", "health", "food", "work", "transport", "other", "health", "food", "work", "work", "transport", "other","hotels", "hotels", "hotels", "hotels", "hotels", "health", "food", "work", "hotels", "work", "transport", "other","work", "health", "food", "work", "health", "food", "work", "hotels", "work", "transport", "other","work", "transport", "other","work", "transport", "other","work", "transport", "transport", "other","transport", "other","transport", "other","transport", "other", "other","health", "food", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food", "work", "health", "food", "work", "health", "food", "work", "hotels", "health", "food"]
   const { filterType } = useContext(FilterTypeContext);
 
   return (

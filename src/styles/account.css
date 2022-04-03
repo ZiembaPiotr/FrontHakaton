@@ -1,0 +1,13 @@
+.accountContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile {
+    min-width: 100px;
+    flex: 1
+}
+
+.form {
+    flex: available;
+}

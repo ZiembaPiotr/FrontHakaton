@@ -16,7 +16,7 @@ function AnnouncementForm() {
     }, [])
 
     return (
-      <div>
+      <>
           <h1>DODAJ OGŁOSZENIE</h1>
           <form id="loginForm">
               <Grid container columnSpacing={5}>
@@ -61,7 +61,7 @@ function AnnouncementForm() {
 
 
           </form>
-      </div>
+      </>
     );
 }
 

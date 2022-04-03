@@ -10,9 +10,10 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import HotelIcon from '@mui/icons-material/Hotel';
 import HealingIcon from '@mui/icons-material/Healing';
 import WorkIcon from '@mui/icons-material/Work';
+import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation';
+import MoreIcon from '@mui/icons-material/More';
 import {useContext, useState} from "react";
 import {IsAuthenticatingContext} from "../providers/isAuthenticatingProvider";
-import {useCycle} from "framer-motion";
 
 const Search = styled('div')(({theme}) => ({
   position: 'relative',
@@ -56,13 +57,13 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
   },
 }));
 
-const SearchBar = ({setFilterType}) => {
+const SearchBar = ({filterType, setFilterType}) => {
   const { isAuthenticating } = useContext(IsAuthenticatingContext)
 
   const [isFiltered, resetFilter] = useState(false)
 
   const setFilter = (filterName) => {
-    if(isFiltered) {
+    if(isFiltered && filterType === filterName) {
       setFilterType("")
       resetFilter(false)
       return
@@ -125,6 +126,32 @@ const SearchBar = ({setFilterType}) => {
               <div onClick={() => setFilter("work")}>
                 <WorkIcon style={{marginTop: 10}}/>
                 <div> Workplaces </div>
+              </div>
+            </Typography>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+
+            >
+              <div onClick={() => setFilter("transport")}>
+                <EmojiTransportationIcon style={{marginTop: 10}}/>
+                <div> Transport </div>
+              </div>
+            </Typography>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}
+
+            >
+              <div onClick={() => setFilter("other")}>
+                <MoreIcon style={{marginTop: 10}}/>
+                <div> Other </div>
               </div>
             </Typography>
 
